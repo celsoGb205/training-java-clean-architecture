@@ -1,4 +1,6 @@
 package http;
 
-public class HttpMethod {
+public enum HttpMethod {
+    GET,
+    POST
 }
