@@ -61,4 +61,31 @@ class CadastroUsuarioTest {
         });
     }
 
+    @Test
+    void deveCriarResponse200() {
+        HttpResponse r = HttpResponse.ok("ok");
+
+        assertEquals(200, r.getStatusCode());
+        assertEquals("ok", r.getBody());
+    }
+
+    @Test
+    void naoDeveAceitarPathInvalido() {
+        assertThrows(IllegalArgumentException.class, () -> {
+            new HttpRequest(HttpMethod.GET, "", Map.of());
+        });
+    }
+
+    @Test
+    void deveRetornar404QuandoRotaNaoExiste() {
+        Router router = new Router();
+
+        HttpRequest req =
+                new HttpRequest(HttpMethod.GET, "/nada", Map.of());
+
+        HttpResponse res = router.dispatch(req);
+
+        assertEquals(404, res.getStatusCode());
+    }
+
 }

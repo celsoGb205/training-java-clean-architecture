@@ -1,7 +1,5 @@
 package net.javaguides.app;
 
-
-
 import net.javaguides.application.usecase.BuscarPorEmailUseCase;
 import net.javaguides.application.usecase.CadastrarUsuarioUseCase;
 import net.javaguides.controller.UsuarioController;
